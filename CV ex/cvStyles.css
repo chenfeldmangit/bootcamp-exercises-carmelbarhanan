@@ -1,0 +1,53 @@
+body {
+    margin: 30px;
+}
+
+h1 h3 p th td li a {
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h3 {
+    color: darkslategrey;
+    background: lightgrey;
+    width: 40%;
+}
+
+p {
+    font-size: 14px;
+}
+
+th {
+    text-decoration: underline;
+    width: 180px;
+}
+
+td {
+    width: 240px;
+    text-align: center;
+}
+
+div {
+    padding: 20px;
+}
+
+img{
+    border: 1px solid black;
+    -webkit-box-shadow: 7px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 7px 10px 5px 0px rgba(0,0,0,0.75);}
+
+.profileImg {
+    width: 100px;
+    height: 100px;
+}
+
+#nameForHeader {
+    color: cadetblue;
+    text-decoration: underline;
+    display: inline;
+    margin: 10px;
+}

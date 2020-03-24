@@ -38,7 +38,14 @@ body .wrapper #middle-stream-profile .profile-name {
 }
 body .wrapper #middle-stream-profile #profileNearIcon, body .wrapper #middle-stream-profile .personal-description, body .wrapper #middle-stream-profile .personal-description-icon {
   float: left;
-  margin-left: 10px;
+  margin-right: 10px;
+}
+body .wrapper #middle-stream-profile .follow-info-wrapper {
+  width: 15em;
+}
+body .wrapper #middle-stream-profile .follow-info {
+  float: left;
+  margin-right: 10px;
 }
 body .wrapper #middle-stream-profile .personal-description-icon {
   padding-top: 1em;

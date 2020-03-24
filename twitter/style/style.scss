@@ -33,9 +33,18 @@ body {
         font-weight: bold;
       }
 
-      #profileNearIcon, .personal-description, .personal-description-icon{
+      #profileNearIcon, .personal-description, .personal-description-icon {
         float: left;
-        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .follow-info-wrapper {
+        width: 15em;
+      }
+
+      .follow-info {
+        float: left;
+        margin-right: 10px;
       }
 
       .personal-description-icon {

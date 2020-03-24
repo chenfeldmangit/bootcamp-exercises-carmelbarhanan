@@ -40,6 +40,10 @@ window.onload = function () {
     document.getElementsByClassName('personal-description')[0].innerHTML = profileInfo.location;
     document.getElementsByClassName('personal-description')[1].innerHTML = profileInfo.website;
     document.getElementsByClassName('personal-description')[2].innerHTML = profileInfo.joinedTime;
+    document.getElementsByClassName('follow-info')[0].innerHTML = profileInfo.numOfFollowing + ' Following';
+    document.getElementsByClassName('follow-info')[1].innerHTML = profileInfo.numOfFollowers + ' Followers';
+
+
 
     var div = document.createElement("div");
     document.getElementById('middle-stream-profile').appendChild(div)

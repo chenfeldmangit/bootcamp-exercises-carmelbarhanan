@@ -1,0 +1,66 @@
+$font-stack:    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+@use 'profilePicture';
+@use 'pageRows';
+@use 'icons';
+
+@mixin button($width) {
+  text-align: center;
+  border-radius: 8px;
+  width: $width;
+  background-color: rgb(29, 161, 242);
+  color: white;
+  height: 35px;
+  box-shadow: none;
+}
+
+body {
+  font-family: $font-stack;
+
+  .wrapper {
+    display: flex;
+
+    li {
+      list-style-type: none;
+      height: 50px;
+    }
+
+    .twitterLogo {
+      width: 25px;
+      height: 25px;
+    }
+
+    .tweet-button {
+      @include button(180px)
+    }
+
+    .menuTitle {
+      display: inline;
+      padding-left: 2ex;
+    }
+
+    .profilePicture {
+      .author {
+        display: inline;
+      }
+    }
+
+    .author {
+      line-height: 25px;
+      padding-left: 8px;
+      margin: 0px;
+    }
+
+    #middle-stream {
+      padding-left: 30px;
+      max-width: 1000px;
+    }
+
+    .twitter-stream-image {
+      max-width: 350px;
+    }
+
+    #nameAndProfile {
+      display: flex;
+    }
+  }
+}

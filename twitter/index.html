@@ -15,43 +15,59 @@
                     </ul>
                     <ul>
                     <li>
-                        <img src="home.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> Home </h3>
+                        <div id="homeLink" onclick="toHome()">
+                            <img src="home.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> Home </h3>
+                        </div>
                     </li>
                     <li>
-                        <img src="grid.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> Explore </h3>
+                        <div>
+                            <img src="grid.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> Explore </h3>
+                        </div>
                     </li>
                     <li>
-                        <img src="notification.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> Notification </h3>
+                        <div>
+                            <img src="notification.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> Notification </h3>
+                        </div>
                     </li>
                     <li>
-                        <img src="message.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> Messages </h3>
+                        <div>
+                            <img src="message.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> Messages </h3>
+                        </div>
                     </li>
                     <li>
-                        <img src="bookmark.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> Bookmarks </h3>
+                        <div>
+                            <img src="bookmark.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> Bookmarks </h3>
+                        </div>
                     </li>
                     <li>
-                        <img src="list.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> Lists </h3>
+                        <div>
+                            <img src="list.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> Lists </h3>
+                        </div>
                     </li>
                     <li>
-                        <img class="icon profilePicture" src="profile.jpg" alt="home">
-                        <h3 class="menuTitle"> Profile </h3>
+                        <div id="profileLink" onclick="toProfile()">
+                            <img class="icon profilePicture" src="profile.jpg" alt="home">
+                            <h3 class="menuTitle"> Profile </h3>
+                        </div>
                     </li>
                     <li>
-                        <img src="more.svg" class="icon" alt="home">
-                        <h3 class="menuTitle"> More </h3>
+                        <div>
+                            <img src="more.svg" class="icon" alt="home">
+                            <h3 class="menuTitle"> More </h3>
+                        </div>
                     </li>
                     <li>
                         <button class="tweet-button">Tweet</button>
                     </li>
                 </ul>
             </div>
-            <div id="middle-stream">
+            <div id="middle-stream-twits">
                 <article>
                     <div id="nameAndProfile">
                         <img class="profilePicture" src="profile.jpg" alt="home">
@@ -61,6 +77,32 @@
                     <img class="twitter-stream-image" src="twitterStreamImage.jfif" alt="streamImage">
                     <p>11:24 PM · Feb 10, 2020</p>
                 </article>
+            </div>
+            <div id="middle-stream-profile">
+                <div>
+                    <img src="back.svg" class="icon back-icon" alt="home">
+                    <div id="profileNearIcon">
+                        <p class="profile-name"></p>
+                        <p class="sub-text" id="numOfTweets"></p>
+                    </div>
+
+                </div>
+                <img id="coverPhoto" alt="cover">
+                <div>
+                    <img id="profilePage" class="profilePicture" alt="profile">
+                    <button class="tweet-button edit-profile">Edit profile</button>
+                    <p class="profile-name"></p>
+                    <p class="sub-text" id="personalProfile"></p>
+                    <p id="personalDiscription"></p>
+                </div>
+                <div>
+                    <img class="icon personal-description-icon" src="pin.svg" alt="location">
+                    <p class="personal-description"></p>
+                    <img class="icon personal-description-icon" src="chain.svg" alt="link">
+                    <p class="personal-description"></p>
+                    <img class="icon personal-description-icon" src="calendar.svg" alt="calendar">
+                    <p class="personal-description"></p>
+                </div>
             </div>
             <div id="side-recommendations">
             </div>

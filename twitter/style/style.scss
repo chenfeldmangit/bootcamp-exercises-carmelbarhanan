@@ -15,9 +15,73 @@ $font-stack:    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto
 
 body {
   font-family: $font-stack;
+  font-weight: 500;
 
   .wrapper {
     display: flex;
+
+    #middle-stream-profile, #middle-stream-twits {
+      margin-right: 5em;
+      margin-left: 5em;
+    }
+
+    #middle-stream-profile {
+      display: none;
+
+      .profile-name {
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+
+      #profileNearIcon, .personal-description, .personal-description-icon{
+        float: left;
+        margin-left: 10px;
+      }
+
+      .personal-description-icon {
+        padding-top: 1em;
+      }
+
+      .personal-description, .personal-description-icon {
+        color: #bbb8b8;
+        fill: #bbb8b8;
+      }
+
+      .sub-text {
+        margin: 0;
+        color: #bbb8b8;
+      }
+
+      .back-icon {
+        float: left;
+        padding-top: 22px;
+      }
+
+      #coverPhoto {
+        width: 40em;
+        height: 15em;
+        z-index: 1;
+      }
+
+      .profilePicture {
+        width: 8em;
+        height: 8em;
+        margin-top: -10%;
+        margin-left: 20px;
+      }
+
+      .edit-profile {
+        float: right;
+        border: 1px solid rgb(29, 161, 242);
+        color: rgb(29, 161, 242);
+        background-color: white;
+      }
+
+    }
+
+    #side-recommendations {
+      width: 80%;
+    }
 
     li {
       list-style-type: none;

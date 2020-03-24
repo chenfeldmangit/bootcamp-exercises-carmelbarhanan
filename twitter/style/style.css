@@ -4,7 +4,7 @@
   height: 25px;
 }
 
-#side-nav-wrapper #middle-stream #side-recommendations {
+#side-nav-wrapper #middle-stream-twits #middle-stream-profile #side-recommendations {
   max-width: 33%;
 }
 
@@ -20,9 +20,60 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  font-weight: 500;
 }
 body .wrapper {
   display: flex;
+}
+body .wrapper #middle-stream-profile, body .wrapper #middle-stream-twits {
+  margin-right: 5em;
+  margin-left: 5em;
+}
+body .wrapper #middle-stream-profile {
+  display: none;
+}
+body .wrapper #middle-stream-profile .profile-name {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+body .wrapper #middle-stream-profile #profileNearIcon, body .wrapper #middle-stream-profile .personal-description, body .wrapper #middle-stream-profile .personal-description-icon {
+  float: left;
+  margin-left: 10px;
+}
+body .wrapper #middle-stream-profile .personal-description-icon {
+  padding-top: 1em;
+}
+body .wrapper #middle-stream-profile .personal-description, body .wrapper #middle-stream-profile .personal-description-icon {
+  color: #bbb8b8;
+  fill: #bbb8b8;
+}
+body .wrapper #middle-stream-profile .sub-text {
+  margin: 0;
+  color: #bbb8b8;
+}
+body .wrapper #middle-stream-profile .back-icon {
+  float: left;
+  padding-top: 22px;
+}
+body .wrapper #middle-stream-profile #coverPhoto {
+  width: 40em;
+  height: 15em;
+  z-index: 1;
+}
+body .wrapper #middle-stream-profile .profilePicture {
+  width: 8em;
+  height: 8em;
+  margin-top: -10%;
+  margin-left: 20px;
+}
+body .wrapper #middle-stream-profile .edit-profile {
+  float: right;
+  border: 1px solid #1da1f2;
+  color: #1da1f2;
+  background-color: white;
+}
+body .wrapper #side-recommendations {
+  width: 80%;
 }
 body .wrapper li {
   list-style-type: none;

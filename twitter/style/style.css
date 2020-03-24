@@ -1,0 +1,67 @@
+.profilePicture {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+#side-nav-wrapper #middle-stream #side-recommendations {
+  max-width: 33%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline;
+}
+.icon .menuTitle:hover {
+  background-color: lightcyan;
+  color: cornflowerblue;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+body .wrapper {
+  display: flex;
+}
+body .wrapper li {
+  list-style-type: none;
+  height: 50px;
+}
+body .wrapper .twitterLogo {
+  width: 25px;
+  height: 25px;
+}
+body .wrapper .tweet-button {
+  text-align: center;
+  border-radius: 8px;
+  width: 180px;
+  background-color: #1da1f2;
+  color: white;
+  height: 35px;
+  box-shadow: none;
+}
+body .wrapper .menuTitle {
+  display: inline;
+  padding-left: 2ex;
+}
+body .wrapper .profilePicture .author {
+  display: inline;
+}
+body .wrapper .author {
+  line-height: 25px;
+  padding-left: 8px;
+  margin: 0px;
+}
+body .wrapper #middle-stream {
+  padding-left: 30px;
+  max-width: 1000px;
+}
+body .wrapper .twitter-stream-image {
+  max-width: 350px;
+}
+body .wrapper #nameAndProfile {
+  display: flex;
+}
+
+/*# sourceMappingURL=style.css.map */

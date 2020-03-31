@@ -135,5 +135,48 @@ body {
     #nameAndProfile {
       display: flex;
     }
+
+    #middle-stream-twits {
+      article {
+        padding: 10px;
+        display: inline-block;
+        width: 55em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 7px;
+      }
+
+      input[type=text] {
+        width: 90%;
+        padding: 9px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      #addTweet {
+        border:  1px solid #bbb8b8;
+      }
+
+      .tweet-button {
+        margin-left: 70%;
+      }
+
+      #likeTweet {
+        float: right;
+        padding: 13px 5px 0 5px;
+      }
+
+      #numOfLikes {
+        float: right;
+      }
+
+      #timeOfTweet {
+        float: left;
+      }
+    }
   }
 }

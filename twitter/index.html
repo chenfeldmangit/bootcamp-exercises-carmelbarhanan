@@ -68,15 +68,33 @@
                 </ul>
             </div>
             <div id="middle-stream-twits">
-                <article>
-                    <div id="nameAndProfile">
-                        <img class="profilePicture" src="profile.jpg" alt="home">
-                        <h4 class="author">Maryfairyboberry</h4>
+                <div id="addTweet">
+                    <h3>Home</h3>
+                    <br>
+                    <img class="profilePicture" src="profile.jpg" alt="home">
+                    <input type="text" id="tweetInput" placeholder="What's happening?">
+                    <input type="submit" value="Tweet" class="tweet-button" onclick="Tweets.saveNewTweet()">
+                </div>
+                <div id="tweets">
+                    <h3>Tweets </h3>
+                    <div id="templateWrapper">
+                        <template>
+                            <article>
+                                <div id="nameAndProfile">
+                                    <img id="profilePicOfTweeter" class="profilePicture" alt="home">
+                                    <h4 id="TweetAuthor" class="author"></h4>
+                                </div>
+                                <p id="tweenContent"></p>
+                                <div>
+                                    <p id="timeOfTweet"></p>
+                                    <img id="trash" class="icon" src="trash.svg" alt="like" onclick="Tweets.deleteTweet(this)">
+                                    <img id="likeTweet" class="icon" src="like.svg" alt="like" onclick="Tweets.addLikeToTweet(this)">
+                                    <p id="numOfLikes"></p>
+                                </div>
+                            </article>
+                        </template>
                     </div>
-                    <p>When @Twitter sends you a screenshot of your tweet on an actual sign in New York in the 8th Ave & 14th St. Subway Station you die of happiness!! #Lovetwitter </p>
-                    <img class="twitter-stream-image" src="twitterStreamImage.jfif" alt="streamImage">
-                    <p>11:24 PM · Feb 10, 2020</p>
-                </article>
+                </div>
             </div>
             <div id="middle-stream-profile">
                 <div>

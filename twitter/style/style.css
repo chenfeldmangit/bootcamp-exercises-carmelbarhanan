@@ -121,5 +121,39 @@ body .wrapper .twitter-stream-image {
 body .wrapper #nameAndProfile {
   display: flex;
 }
+body .wrapper #middle-stream-twits article {
+  padding: 10px;
+  display: inline-block;
+  width: 55em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 7px;
+}
+body .wrapper #middle-stream-twits input[type=text] {
+  width: 90%;
+  padding: 9px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+body .wrapper #middle-stream-twits #addTweet {
+  border: 1px solid #bbb8b8;
+}
+body .wrapper #middle-stream-twits .tweet-button {
+  margin-left: 70%;
+}
+body .wrapper #middle-stream-twits #likeTweet {
+  float: right;
+  padding: 13px 5px 0 5px;
+}
+body .wrapper #middle-stream-twits #numOfLikes {
+  float: right;
+}
+body .wrapper #middle-stream-twits #timeOfTweet {
+  float: left;
+}
 
 /*# sourceMappingURL=style.css.map */

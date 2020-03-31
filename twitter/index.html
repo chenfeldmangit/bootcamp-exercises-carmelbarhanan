@@ -8,6 +8,28 @@
     <script src="scripts/twitterScripts.js" async></script>
 </head>
     <body>
+        <template>
+            <article>
+                <div id="nameAndProfile">
+                    <img id="profilePicOfTweeter" class="profilePicture" alt="home">
+                    <h4 id="TweetAuthor" class="author"></h4>
+                </div>
+                <p id="tweenContent"></p>
+                <div>
+                    <p id="timeOfTweet"></p>
+                    <img id="trash" class="icon" src="trash.svg" alt="like" onclick="Tweets.deleteTweet(this)">
+                    <img id="likeTweet" class="icon" src="like.svg" alt="like" onclick="Tweets.addLikeToTweet(this)">
+                    <p id="numOfLikes"></p>
+                </div>
+            </article>
+        </template>
+        <template>
+            <li>
+                <img id="profileImageOfTweet" class="profilePicture" alt="profile">
+                <p id="tweeterNameFound"></p>
+                <p id="tweetContentFound"></p>
+            </li>
+        </template>
         <div class="wrapper">
             <div id="side-nav-wrapper">
                     <ul>
@@ -70,31 +92,14 @@
             <div id="middle-stream-twits">
                 <div id="addTweet">
                     <h3>Home</h3>
-                    <br>
-                    <img class="profilePicture" src="profile.jpg" alt="home">
-                    <input type="text" id="tweetInput" placeholder="What's happening?">
+                    <div>
+                        <img class="profilePicture" src="profile.jpg" alt="home">
+                        <input type="text" id="tweetInput" placeholder="What's happening?">
+                    </div>
                     <input type="submit" value="Tweet" class="tweet-button" onclick="Tweets.saveNewTweet()">
                 </div>
-                <div id="tweets">
-                    <h3>Tweets </h3>
-                    <div id="templateWrapper">
-                        <template>
-                            <article>
-                                <div id="nameAndProfile">
-                                    <img id="profilePicOfTweeter" class="profilePicture" alt="home">
-                                    <h4 id="TweetAuthor" class="author"></h4>
-                                </div>
-                                <p id="tweenContent"></p>
-                                <div>
-                                    <p id="timeOfTweet"></p>
-                                    <img id="trash" class="icon" src="trash.svg" alt="like" onclick="Tweets.deleteTweet(this)">
-                                    <img id="likeTweet" class="icon" src="like.svg" alt="like" onclick="Tweets.addLikeToTweet(this)">
-                                    <p id="numOfLikes"></p>
-                                </div>
-                            </article>
-                        </template>
-                    </div>
-                </div>
+                <h3> Tweets </h3>
+                <div id="tweets"></div>
             </div>
             <div id="middle-stream-profile">
                 <div>
@@ -126,7 +131,11 @@
                     <p class="follow-info"></p>
                 </div>
             </div>
-            <div id="side-recommendations">
+            <div id="side-trends">
+                <img src="search.svg" class="icon search-icon" alt="search">
+                <input type="text" id="searchBox" placeholder="Search for trends..." onchange="Tweets.searchInTweets(this.value)">
+                <ul id="searchedTweetsList">
+                </ul>
             </div>
         </div>
     </body>

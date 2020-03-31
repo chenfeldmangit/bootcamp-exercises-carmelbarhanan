@@ -88,7 +88,7 @@ body {
 
     }
 
-    #side-recommendations {
+    #side-trends {
       width: 80%;
     }
 
@@ -103,7 +103,8 @@ body {
     }
 
     .tweet-button {
-      @include button(180px)
+      @include button(180px);
+      margin-bottom: 10px;
     }
 
     .menuTitle {
@@ -159,13 +160,15 @@ body {
 
       #addTweet {
         border:  1px solid #bbb8b8;
+        width: 40em;
+        margin: 20px;
       }
 
       .tweet-button {
         margin-left: 70%;
       }
 
-      #likeTweet {
+      #likeTweet, #trash{
         float: right;
         padding: 13px 5px 0 5px;
       }
@@ -177,6 +180,44 @@ body {
       #timeOfTweet {
         float: left;
       }
+
+      .profilePicture {
+        padding: 5px 5px;
+      }
     }
+
+    #side-trends {
+      #searchBox {
+        @include button(180px);
+        margin-bottom: 10px;
+        border: 2px solid rgb(29, 161, 242);
+        margin-top: 20px;
+        background-color: white;
+        color: black;
+      }
+
+      li {
+        width: 240px;
+        height: 60px;
+        border: 1px solid gray;
+        font-weight: normal;
+        font-size: 10px;
+      }
+
+      #tweeterNameFound {
+        float: right;
+        padding-right: 14em;
+        font-weight: bold;
+      }
+
+      #tweetContentFound {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width:200px;
+      }
+    }
+
+
   }
 }

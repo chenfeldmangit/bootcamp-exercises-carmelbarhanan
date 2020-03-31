@@ -1,4 +1,5 @@
 function toProfile() {
+    loadProfileData();
     var tweets = document.getElementById('middle-stream-twits');
     tweets.style.display = "none";
 
@@ -14,7 +15,7 @@ function toHome() {
     profile.style.display = "none";
 }
 
-window.onload = function () {
+loadProfileData = function () {
     var profileInfo = {
         profileName: "Carmel Bar-Hanan",
         coverPhotoPath: "images/coverPhoto.jfif",
@@ -46,45 +47,46 @@ window.onload = function () {
 
 };
 
-tweetsList = [{
-    profilePhotoPathToTweeter: "profile.jpg",
-    tweeterName: "Carmel Bar-Hanan",
-    tweetContent: "The seaweed is always greener, In somebody else's lake. You dream about going up there, But that is a big mistake",
-    timeOfTweet: "March 30 2020, 14:20",
-    numberOfLikes: 1
-}, {
-    profilePhotoPathToTweeter: "profile2.jpg",
-    tweeterName: "Etai Bar-Hanan",
-    tweetContent: "Down here all the fish is happy, As off through the waves they roll. The fish on the land ain't happy, They sad 'cause they in their bowl",
-    timeOfTweet: "March 31 2020, 10:41",
-    numberOfLikes: 4
-}];
-
 window.onload = function setTweets() {
     localStorage.setItem('tweetsList', JSON.stringify(tweetsList));
     Tweets.loadTweets();
-    // setInterval(()=>{
-    //     Tweets.loadTweets()
-    // }, 1000)
+    setInterval(()=>{
+        Tweets.loadTweets()
+    }, 3000)
 };
 
 
 
+tweetsList = [
+    {
+    profilePhotoPathToTweeter: "profile.jpg",
+    tweeterName: "Carmel Bar-Hanan",
+    tweetContent: "Yes, The seaweed is always greener, In somebody else's lake. You dream about going up there, But that is a big mistake",
+    timeOfTweet: "March 30 2020, 14:20",
+    numberOfLikes: 1
+    }, {
+    profilePhotoPathToTweeter: "profile2.jpg",
+    tweeterName: "Etai Bar-Hanan",
+    tweetContent: "Down here all the fish is happy, As off through the waves they roll. Yes, The fish on the land ain't happy, They sad 'cause they in their bowl",
+    timeOfTweet: "March 31 2020, 10:41",
+    numberOfLikes: 4
+    }];
+
+
 class Tweets {
-     static saveNewTweet() {
+     static saveNewTweet = async function() {
         var tweetInput = document.getElementById("tweetInput").value;
-         this.getTweets().then(tweetsList =>
+         var tweetsList = await Tweets.getTweets();
          tweetsList[Object.keys(tweetsList).length] = {
              profilePhotoPathToTweeter: "profile.jpg",
              tweeterName: "Carmel Bar-Hanan",
              tweetContent: tweetInput,
-             timeOfTweet: this.getNowTime(),
+             timeOfTweet: Tweets.getNowTime(),
              numberOfLikes: 0
-         });
+         };
          localStorage.setItem('tweetsList', JSON.stringify(tweetsList));
-         document.getElementById("tweetInput").place = "";
-         this.loadNewTweet();
-     }
+         Tweets.loadNewTweet();
+     };
 
     static getNowTime() {
         var today = new Date();
@@ -93,37 +95,29 @@ class Tweets {
         return date+' '+time;
     }
 
-    static loadTweets() {
-        document.getElementsByTagName("template").innerHTML = "";
-        this.getTweets().then(tweetsList => {
+    static loadTweets = async function() {
+        document.getElementById("tweets").innerHTML = "";
+        var tweetsList = await Tweets.getTweets();
         let temp = document.getElementsByTagName("template")[0];
-        for (var i=0; i < Object.keys(tweetsList).length; i++) {
-            let clon = temp.content.cloneNode(true);
-            clon.querySelector("article").setAttribute("id", "tweet" + i);
-            clon.querySelector("#profilePicOfTweeter").src = tweetsList[i].profilePhotoPathToTweeter;
-            clon.querySelector("#TweetAuthor").innerHTML = tweetsList[i].tweeterName;
-            clon.querySelector("#tweenContent").innerHTML = tweetsList[i].tweetContent;
-            clon.querySelector("#timeOfTweet").innerHTML = tweetsList[i].timeOfTweet;
-            clon.querySelector("#numOfLikes").innerHTML = tweetsList[i].numberOfLikes;
-            document.getElementById("tweets").appendChild(clon);
-         }
+        tweetsList.forEach(tweet => {
+                let clon = temp.content.cloneNode(true);
+                clon.querySelector("article").setAttribute("id", "tweet" + tweetsList.indexOf(tweet));
+                clon.querySelector("#profilePicOfTweeter").src = tweet.profilePhotoPathToTweeter;
+                clon.querySelector("#TweetAuthor").innerHTML = tweet.tweeterName;
+                clon.querySelector("#tweenContent").innerHTML = tweet.tweetContent;
+                clon.querySelector("#timeOfTweet").innerHTML = tweet.timeOfTweet;
+                clon.querySelector("#numOfLikes").innerHTML = tweet.numberOfLikes;
+                document.getElementById("tweets").appendChild(clon);
         });
-     }
+     };
 
-    static getTweets = () => {
-         return new Promise((resolve, reject) => {
-             try {
-                 let tweetData = JSON.parse(localStorage.getItem('tweetsList') ) || {};
-                 resolve(tweetData);
-             } catch (e) {
-                 reject(e);
-             }
-         })
+    static getTweets  = async function() {
+         return JSON.parse(localStorage.getItem('tweetsList') ) || {};
     };
 
-    static loadNewTweet() {
-        this.getTweets().then(tweetsList => {
-            let temp = document.getElementsByTagName("template")[0];
+    static loadNewTweet = async function() {
+        var tweetsList = await Tweets.getTweets();
+        let temp = document.getElementsByTagName("template")[0];
             let clon = temp.content.cloneNode(true);
             var tweetsListSize = Object.keys(tweetsList).length;
             clon.querySelector("article").setAttribute("id", "tweet" + tweetsListSize);
@@ -133,25 +127,45 @@ class Tweets {
             clon.querySelector("#timeOfTweet").innerHTML = tweetsList[tweetsListSize - 1].timeOfTweet;
             clon.querySelector("#numOfLikes").innerHTML = tweetsList[tweetsListSize - 1].numberOfLikes;
             document.getElementById("tweets").appendChild(clon);
-        });
-    }
+    };
 
-    static addLikeToTweet(obj) {
+    static addLikeToTweet= async function(obj) {
         var idOfTweet = obj.parentElement.parentElement.getAttribute("id");
         var numOfTweet = idOfTweet.split('tweet')[1];
-        this.getTweets().then(tweetsList => {
+        Tweets.getTweets().then(tweetsList => {
             tweetsList[numOfTweet].numberOfLikes += 1;
             localStorage.setItem('tweetsList', JSON.stringify(tweetsList));
         });
-    }
+    };
 
-    static deleteTweet(obj) {
+    static deleteTweet = async function(obj) {
         var idOfTweet = obj.parentElement.parentElement.getAttribute("id");
         var numOfTweet = idOfTweet.split('tweet')[1];
-        this.getTweets().then(tweetsList => {
-            var a = tweetsList.splice[numOfTweet];
+        Tweets.getTweets().then(tweetsList => {
+            tweetsList.splice(numOfTweet, 1);
             localStorage.setItem('tweetsList', JSON.stringify(tweetsList));
         });
+    }
+
+    static searchInTweets = async function(search) {
+        var tweetsList = await Tweets.getTweets();
+        var resList = [];
+        tweetsList.forEach(tweet => {
+            if (tweet.tweetContent.includes(search)) {
+                resList.push(tweet)
+                }
+            }
+        );
+
+        let temp = document.getElementsByTagName("template")[1];
+        resList.forEach(tweet => {
+            let clon = temp.content.cloneNode(true);
+            clon.querySelector("#profileImageOfTweet").src = tweet.profilePhotoPathToTweeter;
+            clon.querySelector("#tweeterNameFound").innerHTML = tweet.tweeterName;
+            clon.querySelector("#tweetContentFound").innerHTML = tweet.tweetContent;
+            document.getElementById("searchedTweetsList").appendChild(clon);
+        });
+
     }
 }
 

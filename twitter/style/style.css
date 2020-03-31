@@ -4,7 +4,7 @@
   height: 25px;
 }
 
-#side-nav-wrapper #middle-stream-twits #middle-stream-profile #side-recommendations {
+#side-nav-wrapper #middle-stream-twits #middle-stream-profile #side-trends {
   max-width: 33%;
 }
 
@@ -79,7 +79,7 @@ body .wrapper #middle-stream-profile .edit-profile {
   color: #1da1f2;
   background-color: white;
 }
-body .wrapper #side-recommendations {
+body .wrapper #side-trends {
   width: 80%;
 }
 body .wrapper li {
@@ -98,6 +98,7 @@ body .wrapper .tweet-button {
   color: white;
   height: 35px;
   box-shadow: none;
+  margin-bottom: 10px;
 }
 body .wrapper .menuTitle {
   display: inline;
@@ -141,11 +142,13 @@ body .wrapper #middle-stream-twits input[type=text] {
 }
 body .wrapper #middle-stream-twits #addTweet {
   border: 1px solid #bbb8b8;
+  width: 40em;
+  margin: 20px;
 }
 body .wrapper #middle-stream-twits .tweet-button {
   margin-left: 70%;
 }
-body .wrapper #middle-stream-twits #likeTweet {
+body .wrapper #middle-stream-twits #likeTweet, body .wrapper #middle-stream-twits #trash {
   float: right;
   padding: 13px 5px 0 5px;
 }
@@ -154,6 +157,41 @@ body .wrapper #middle-stream-twits #numOfLikes {
 }
 body .wrapper #middle-stream-twits #timeOfTweet {
   float: left;
+}
+body .wrapper #middle-stream-twits .profilePicture {
+  padding: 5px 5px;
+}
+body .wrapper #side-trends #searchBox {
+  text-align: center;
+  border-radius: 8px;
+  width: 180px;
+  background-color: #1da1f2;
+  color: white;
+  height: 35px;
+  box-shadow: none;
+  margin-bottom: 10px;
+  border: 2px solid #1da1f2;
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+}
+body .wrapper #side-trends li {
+  width: 240px;
+  height: 60px;
+  border: 1px solid gray;
+  font-weight: normal;
+  font-size: 10px;
+}
+body .wrapper #side-trends #tweeterNameFound {
+  float: right;
+  padding-right: 14em;
+  font-weight: bold;
+}
+body .wrapper #side-trends #tweetContentFound {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,6 +7,29 @@ function toProfile() {
     profile.style.display = "block";
 }
 
+var btn = document.getElementById("edit-profile");
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+closeModal = function() {
+    modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
 function toHome() {
     var tweets = document.getElementById('middle-stream-twits');
     tweets.style.display = "block";
@@ -15,20 +38,21 @@ function toHome() {
     profile.style.display = "none";
 }
 
+profileInfo = {
+    profileName: "Carmel Bar-Hanan",
+    coverPhotoPath: "images/coverPhoto.jfif",
+    profilePhotoPath: "images/profile.jpg",
+    bio: "Born and raised here so I am part of twitter and always be",
+    linkToProfile: "\@carmelBarHanan",
+    location: "Tel-Aviv",
+    joinedTime: "May 2018",
+    website: "carmel.barhanan.com",
+    numOfTweets: 131,
+    numOfFollowing: 231,
+    numOfFollowers: 155
+};
+
 loadProfileData = function () {
-    var profileInfo = {
-        profileName: "Carmel Bar-Hanan",
-        coverPhotoPath: "images/coverPhoto.jfif",
-        profilePhotoPath: "profile.jpg",
-        bio: "Born and raised here so I am part of twitter and always be",
-        linkToProfile: "\@carmelBarHanan",
-        location: "Tel-Aviv",
-        joinedTime: "May 2018",
-        website: "carmel.barhanan.com",
-        numOfTweets: 131,
-        numOfFollowing: 231,
-        numOfFollowers: 155
-    };
 
     document.getElementsByClassName('profile-name')[0].innerHTML = profileInfo.profileName;
     document.getElementsByClassName('profile-name')[1].innerHTML = profileInfo.profileName;
@@ -47,30 +71,83 @@ loadProfileData = function () {
 
 };
 
+saveProfileEdit = function() {
+    var name = document.getElementById('fname').value;
+    if (name !== '') {
+        profileInfo.profileName = name;
+    }
+    var bio = document.getElementById('fbio').value;
+    if (bio !== '') {
+        profileInfo.bio = bio;
+    }
+    var location = document.getElementById('flocation').value;
+    if (location !== '') {
+        profileInfo.location = location;
+    }
+    closeModal();
+    toProfile();
+};
+
 window.onload = function setTweets() {
     localStorage.setItem('tweetsList', JSON.stringify(tweetsList));
+    localStorage.setItem('trends', JSON.stringify(trends));
+    loadTrends();
     Tweets.loadTweets();
     setInterval(()=>{
         Tweets.loadTweets()
-    }, 3000)
+    }, 3000);
 };
 
 
 
 tweetsList = [
     {
-    profilePhotoPathToTweeter: "profile.jpg",
+    profilePhotoPathToTweeter: "images/profile.jpg",
     tweeterName: "Carmel Bar-Hanan",
     tweetContent: "Yes, The seaweed is always greener, In somebody else's lake. You dream about going up there, But that is a big mistake",
     timeOfTweet: "March 30 2020, 14:20",
     numberOfLikes: 1
     }, {
-    profilePhotoPathToTweeter: "profile2.jpg",
+    profilePhotoPathToTweeter: "images/profile2.jpg",
     tweeterName: "Etai Bar-Hanan",
     tweetContent: "Down here all the fish is happy, As off through the waves they roll. Yes, The fish on the land ain't happy, They sad 'cause they in their bowl",
     timeOfTweet: "March 31 2020, 10:41",
     numberOfLikes: 4
-    }];
+    }
+];
+
+trends = [
+    {
+        trendSubject: "Health trending",
+        trendContent: "#Covid_19",
+        numOfTweets: "10.6K"
+    }, {
+        trendSubject: "Politics trending",
+        trendContent: "#Coronavirus",
+        numOfTweets: "1.55M"
+    }, {
+        trendSubject: "Politics trending",
+        trendContent: "#Israel_elections",
+        numOfTweets: "8,315"
+    }, {
+        trendSubject: "Trending in Israel",
+        trendContent: "#Omer_Adam",
+        numOfTweets: "2,416"
+    }
+];
+
+loadTrends = function() {
+    var trendsList = JSON.parse(localStorage.getItem('trends') ) || {};
+    let temp = document.getElementsByTagName("template")[2];
+    trendsList.forEach(trend => {
+        let clon = temp.content.cloneNode(true);
+        clon.querySelector("#trendSubject").innerHTML = trend.trendSubject;
+        clon.querySelector("#trendContent").innerHTML = trend.trendContent;
+        clon.querySelector("#numOfTrendsTweets").innerHTML = trend.numOfTweets + ' Tweets';
+        document.getElementById("trendsBox").appendChild(clon);
+    });
+};
+
 
 
 class Tweets {
@@ -78,7 +155,7 @@ class Tweets {
         var tweetInput = document.getElementById("tweetInput").value;
          var tweetsList = await Tweets.getTweets();
          tweetsList[Object.keys(tweetsList).length] = {
-             profilePhotoPathToTweeter: "profile.jpg",
+             profilePhotoPathToTweeter: "images/profile.jpg",
              tweeterName: "Carmel Bar-Hanan",
              tweetContent: tweetInput,
              timeOfTweet: Tweets.getNowTime(),

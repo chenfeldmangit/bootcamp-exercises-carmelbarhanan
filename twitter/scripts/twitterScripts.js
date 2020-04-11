@@ -66,6 +66,8 @@ loadProfileData = function () {
     document.getElementsByClassName('personal-description')[2].innerHTML = profileInfo.joinedTime;
     document.getElementsByClassName('follow-info')[0].innerHTML = profileInfo.numOfFollowing + ' Following';
     document.getElementsByClassName('follow-info')[1].innerHTML = profileInfo.numOfFollowers + ' Followers';
+    document.getElementById('profilePageModal').src = profileInfo.profilePhotoPath;
+    document.getElementById('coverPhotoModal').src = profileInfo.coverPhotoPath;
     var div = document.createElement("div");
     document.getElementById('middle-stream-profile').appendChild(div)
 
@@ -84,8 +86,11 @@ saveProfileEdit = function() {
     if (location !== '') {
         profileInfo.location = location;
     }
-    closeModal();
-    toProfile();
+    modal.style.display = "none";
+    document.getElementsByClassName('profile-name')[0].innerHTML = profileInfo.profileName;
+    document.getElementsByClassName('profile-name')[1].innerHTML = profileInfo.profileName;
+    document.getElementById('personalDiscription').innerText = profileInfo.bio;
+    document.getElementsByClassName('personal-description')[0].innerHTML = profileInfo.location;
 };
 
 window.onload = function setTweets() {

@@ -120,25 +120,6 @@
                 <div>
                     <img id="profilePage" class="profilePicture" alt="profile">
                     <button class="tweet-button" id="edit-profile">Edit profile</button>
-                    <div id="myModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close" onclick="closeModal">&times;</span>
-                            <form>
-                                <h3>Edit your profile</h3>
-                                <label for="fname">Name:</label><br>
-                                <input type="text" id="fname" name="fname"><br>
-                                <p id="countName"></p>
-                                <label for="fbio">Bio:</label><br>
-                                <input type="text" id="fbio" name="fbio" maxlength="160"><br>
-                                <p id="countBio"></p>
-                                <label for="flocation">Location:</label><br>
-                                <input type="text" id="flocation" name="flocation" maxlength="20"><br>
-                                <p id="countLocation"></p>
-                                <button class="tweet-button" onclick="saveProfileEdit()">Save</button>
-                            </form>
-                        </div>
-
-                    </div>
                     <p class="profile-name"></p>
                     <p class="sub-text" id="personalProfile"></p>
                     <p id="personalDiscription"></p>
@@ -154,6 +135,28 @@
                 <div class="follow-info-wrapper">
                     <p class="follow-info"></p>
                     <p class="follow-info"></p>
+                </div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <form>
+                            <h3>Edit your profile</h3>
+                            <img id="coverPhotoModal" alt="cover">
+                            <div>
+                                <img id="profilePageModal" class="profilePicture" alt="profile">
+                            </div>
+                            <label for="fname">Name:</label><br>
+                            <input type="text" id="fname" name="fname"><br>
+                            <p id="countName"></p>
+                            <label for="fbio">Bio:</label><br>
+                            <input type="text" id="fbio" name="fbio" maxlength="160"><br>
+                            <p id="countBio"></p>
+                            <label for="flocation">Location:</label><br>
+                            <input type="text" id="flocation" name="flocation" maxlength="20"><br>
+                            <p id="countLocation"></p>
+                            <button class="tweet-button" onclick="saveProfileEdit()">Save</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div id="side-trends">

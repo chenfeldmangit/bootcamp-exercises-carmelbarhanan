@@ -45,7 +45,7 @@ body {
           margin: 15% auto;
           padding: 20px;
           border: 1px solid #888;
-          width: 80%;
+          width: 60%;
 
           .close {
             color: #aaa;
@@ -111,6 +111,11 @@ body {
       #coverPhoto {
         width: 40em;
         height: 15em;
+        z-index: 1;
+      }
+
+      #coverPhotoModal {
+        width: 100%;
         z-index: 1;
       }
 
@@ -200,6 +205,8 @@ body {
         border:  1px solid #bbb8b8;
         width: 40em;
         margin: 20px;
+        padding: 8px;
+        border-radius: 15px;
       }
 
       .tweet-button {

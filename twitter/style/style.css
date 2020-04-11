@@ -49,7 +49,7 @@ body .wrapper #middle-stream-profile .modal .modal-content {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 60%;
 }
 body .wrapper #middle-stream-profile .modal .modal-content .close {
   color: #aaa;
@@ -102,6 +102,10 @@ body .wrapper #middle-stream-profile .back-icon {
 body .wrapper #middle-stream-profile #coverPhoto {
   width: 40em;
   height: 15em;
+  z-index: 1;
+}
+body .wrapper #middle-stream-profile #coverPhotoModal {
+  width: 100%;
   z-index: 1;
 }
 body .wrapper #middle-stream-profile .profilePicture {
@@ -178,6 +182,8 @@ body .wrapper #middle-stream-twits #addTweet {
   border: 1px solid #bbb8b8;
   width: 40em;
   margin: 20px;
+  padding: 8px;
+  border-radius: 15px;
 }
 body .wrapper #middle-stream-twits .tweet-button {
   margin-left: 70%;
